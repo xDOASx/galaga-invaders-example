@@ -1,20 +1,27 @@
-require_relative 'ship'
+# GalagaInvaders has a coordinate system, with the origin in the upper left,
+# x increasing from left to right, and y increasing from top to bottom. For
+# example, the upper left corner is (0, 0) and the lower right corner is
+# (800, 800).
 
+require_relative 'ship'
 
 class GalagaInvaders
 
+  SCREEN_WIDTH = 800
+  SCREEN_HEIGHT = 800
+
   def initialize
     @caption = "Galaga Invaders"
-    @ship = Ship.new
+    @ship = Ship.new(SCREEN_WIDTH / 2, HEIGHT - Ship::HEIGHT)
   end
 
-
   def update
-    # aliens are moving.
+    @ship.move_missiles
   end
 
   def draw
     @ship.draw
+    @ship.draw_missiles
   end
 
   def show
@@ -25,8 +32,13 @@ class GalagaInvaders
   end
 
   def key_pressed(key)
-    if key == 'a'
-      @ship.x -= 10
+    case key
+    when 'a'
+      @ship.move_left
+    when 'd'
+      @ship.move_right
+    when ' '
+      @ship.fire_missile
     end
   end
 
