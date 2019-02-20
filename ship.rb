@@ -13,12 +13,6 @@ class Ship
     @y = screen_height - half_height
   end
 
-  def fire(missiles)
-    missile = Missile.new(x, top_edge)
-    missile.launch(-10)
-    missiles.add(missile)
-  end
-
   def move_left
     move(-DEFAULT_VELOCITY)
   end
@@ -35,14 +29,14 @@ class Ship
     "✈️ (#{x}, #{y})"
   end
 
+  def muzzle_location
+    Vector.new(x, top_edge)
+  end
+
   private
 
   def move(delta)
     self.x += delta
-  end
-
-  def muzzle_location
-    Vector.new(x, top_edge)
   end
 
   def top_edge

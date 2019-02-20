@@ -1,14 +1,12 @@
 class Missile
 
+  DEFAULT_VELOCITY = -10
   attr_accessor :x, :y, :velocity
 
   def initialize(x, y)
     @x = x
     @y = y
-  end
-
-  def launch(velocity)
-    @velocity = velocity
+    @velocity = DEFAULT_VELOCITY
   end
 
   def move
