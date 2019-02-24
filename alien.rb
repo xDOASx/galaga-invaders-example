@@ -22,15 +22,11 @@ class Alien
     "👾 (#{location})"
   end
 
-  def fire(missiles)
-    missile = Missile.new(Vector.new(location.x, bottom_edge))
-    missile.launch(10)
-    missiles.add(missile)
-  end
-
   def bottom_edge
     location.y + half_height
   end
+
+  private
 
   def half_height
     HEIGHT / 2

@@ -42,10 +42,10 @@ class GalagaInvaders
     elsif key == 'd'
       ship.move_right
     elsif key == ' '
-      ship.fire(missiles)
+      missiles.add_from(ship)
     end
     if key == 'p'
-      alien.fire(missiles)
+      missiles.add_from(alien)
     end
   end
 
