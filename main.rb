@@ -54,9 +54,9 @@ GalagaInvaders.new.show
 =begin
 Reflecting on Principle
 -----------------------
-1. True or False: Good OO design eliminates dependencies.
-2. Briefly list four ways in which a class that collaborates with another class
-   is dependent on it. (For example, one dependency is knowing the other class name.)
-3. What are two primary factors to consider when assessing the risk of a dependency?
-4. What is Metz's rule of thumb for choosing a dependency direction?
+1. What is "duck typing" and what does it have to do with polymorphism?
+2. What are some common code smells that indicate the need for relying on a
+   "duck type" rather than a concrete class?
+3. True or False: Abstractions like duck typing make code explicitly easier to
+   understand, vs. using concrete types.
 =end
