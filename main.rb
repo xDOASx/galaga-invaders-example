@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative 'alien'
 require_relative 'ship'
 require_relative 'missile_collection'
