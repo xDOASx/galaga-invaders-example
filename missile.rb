@@ -1,10 +1,11 @@
+require_relative 'vector'
+
 class Missile
 
-  attr_accessor :x, :y, :velocity
+  attr_accessor :location, :velocity
 
-  def initialize(x, y)
-    @x = x
-    @y = y
+  def initialize(location)
+    @location = location
   end
 
   def launch(velocity)
@@ -12,7 +13,7 @@ class Missile
   end
 
   def move
-    self.y += velocity
+    location.y += velocity
   end
 
   def draw
@@ -20,7 +21,7 @@ class Missile
   end
 
   def to_s
-    "#{falling? ? '☄️' : '🚀'} (#{x}, #{y})"
+    "#{falling? ? '☄️' : '🚀'} (#{location})"
   end
 
   def falling?

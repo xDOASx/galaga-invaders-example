@@ -1,3 +1,4 @@
+require_relative 'vector'
 require_relative 'missile'
 
 class Ship
@@ -6,15 +7,18 @@ class Ship
   HEIGHT = 100
   DEFAULT_VELOCITY = 5
 
-  attr_accessor :x, :y
+  attr_accessor :location
 
   def initialize(screen_width, screen_height)
-    @x = screen_width / 2
-    @y = screen_height - half_height
+    @location = Vector.new(screen_width / 2, screen_height - half_height)
+  end
+
+  def muzzle_location
+    Vector.new(location.x, top_edge)
   end
 
   def fire(missiles)
-    missile = Missile.new(x, top_edge)
+    missile = Missile.new(muzzle_location)
     missile.launch(-10)
     missiles.add(missile)
   end
@@ -32,21 +36,17 @@ class Ship
   end
 
   def to_s
-    "✈️ (#{x}, #{y})"
+    "✈️ (#{location})"
   end
 
   private
 
   def move(delta)
-    self.x += delta
-  end
-
-  def muzzle_location
-    Vector.new(x, top_edge)
+    location.x += delta
   end
 
   def top_edge
-    y - half_height
+    location.y - half_height
   end
 
   def half_height
@@ -54,5 +54,3 @@ class Ship
   end
 
 end
-
-Vector = Struct.new(:x, :y)

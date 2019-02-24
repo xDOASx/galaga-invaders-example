@@ -5,11 +5,10 @@ class Alien
   WIDTH = 50
   HEIGHT = 50
 
-  attr_accessor :x, :y
+  attr_accessor :location
 
   def initialize
-    @x = 200
-    @y = 200
+    @location = Vector.new(200, 200)
   end
 
   def move
@@ -20,17 +19,21 @@ class Alien
   end
 
   def to_s
-    "👾 (#{x}, #{y})"
+    "👾 (#{location})"
   end
 
   def fire(missiles)
-    missile = Missile.new(x, bottom_edge)
+    missile = Missile.new(Vector.new(location.x, bottom_edge))
     missile.launch(10)
     missiles.add(missile)
   end
 
   def bottom_edge
-    y + HEIGHT / 2
+    location.y + half_height
+  end
+
+  def half_height
+    HEIGHT / 2
   end
 
 end
