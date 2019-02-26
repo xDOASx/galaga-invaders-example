@@ -4,6 +4,7 @@ class Alien
 
   WIDTH = 50
   HEIGHT = 50
+  MISSILE_LAUNCH_DIRECTION = 1
 
   attr_accessor :location
 
@@ -20,6 +21,15 @@ class Alien
 
   def to_s
     "👾 (#{location})"
+  end
+
+  def prepare_missile(missile)
+    missile = muzzle_location
+    missile.launch(MISSILE_LAUNCH_DIRECTION)
+  end
+
+  def muzzle_location
+    Vector.new(location.x, bottom_edge)
   end
 
   def bottom_edge

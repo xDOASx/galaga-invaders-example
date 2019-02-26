@@ -6,11 +6,17 @@ class Ship
   WIDTH = 100
   HEIGHT = 100
   DEFAULT_VELOCITY = 5
+  MISSILE_LAUNCH_DIRECTION = -1
 
   attr_accessor :location
 
   def initialize(screen_width, screen_height)
     @location = Vector.new(screen_width / 2, screen_height - half_height)
+  end
+
+  def prepare_missile(missile)
+    missile = muzzle_location
+    missile.launch(MISSILE_LAUNCH_DIRECTION)
   end
 
   def muzzle_location

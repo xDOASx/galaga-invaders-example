@@ -2,14 +2,16 @@ require_relative 'vector'
 
 class Missile
 
+  LAUNCH_VELOCITY = 10
+
   attr_accessor :location, :velocity
 
   def initialize(location)
     @location = location
   end
 
-  def launch(velocity)
-    @velocity = velocity
+  def launch(velocity_direction)
+    @velocity = velocity_direction * LAUNCH_VELOCITY
   end
 
   def move
