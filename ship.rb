@@ -22,6 +22,10 @@ class Ship
     MUNITION_VELOCITY
   end
 
+  def fire(missile)
+    missile.location = muzzle_location
+    missile.velocity = munition_velocity
+  end
 
   def move_left
     move(-DEFAULT_VELOCITY)
