@@ -20,11 +20,7 @@ class MissileCollection
 
   def add_from(launcher)
     missile = Missile.new(launcher.muzzle_location)
-    if launcher.is_a? Ship
-      missile.launch(-10)
-    elsif launcher.is_a? Alien
-      missile.launch(10)
-    end
+    missile.launch(launcher.munition_velocity)
     add(missile)
   end
 

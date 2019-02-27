@@ -4,6 +4,7 @@ class Alien
 
   WIDTH = 50
   HEIGHT = 50
+  MUNITION_VELOCITY = 10
 
   attr_accessor :location
 
@@ -13,6 +14,10 @@ class Alien
 
   def muzzle_location
     Vector.new(location.x, bottom_edge)
+  end
+
+  def munition_velocity
+    MUNITION_VELOCITY
   end
 
   def move
