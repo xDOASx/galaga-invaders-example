@@ -18,9 +18,4 @@ class MissileCollection
     missiles.each(&:draw)
   end
 
-  def add_from(launcher)
-    missile = Missile.new(launcher)
-    add(missile)
-  end
-
 end
