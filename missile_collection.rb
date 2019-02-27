@@ -19,8 +19,7 @@ class MissileCollection
   end
 
   def add_from(launcher)
-    missile = Missile.new(launcher.muzzle_location)
-    missile.launch(launcher.munition_velocity)
+    missile = Missile.new(launcher)
     add(missile)
   end
 

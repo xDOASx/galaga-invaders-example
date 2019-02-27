@@ -4,12 +4,9 @@ class Missile
 
   attr_accessor :location, :velocity
 
-  def initialize(location)
-    @location = location
-  end
-
-  def launch(velocity)
-    @velocity = velocity
+  def initialize(launcher)
+    @location = launcher.muzzle_location
+    @velocity = launcher.munition_velocity
   end
 
   def move
