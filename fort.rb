@@ -1,4 +1,4 @@
-class Missile < Structure
+class Fort < Structure
 
   def initialize(args)
     super
