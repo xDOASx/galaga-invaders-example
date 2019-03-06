@@ -1,23 +1,19 @@
 class Structure
+  include Drawing
+  include Destroyable
+  include Damagable
+  include Hitable
 
-  DAMAGE = 1
+  attr_accessor :hit_points, :location
 
   def initialize(args)
-    @location = args.fetch[:location]
-    @hit_points = args.fetch[:hit_points]
+    location = args.fetch[:location]
+    hit_points = args.fetch[:hit_points]
+    post_initialize(args);
   end
 
-  def hit?(attacker)
-    # Returns true or false based on the simple linear distance
-    # from `attacker.location` to `self.location`
-  end
-
-  def damage
-    @hit_points -= DAMAGE
-  end
-
-  def destroyed?
-    @hit_points <= 0
+  def post_initialize(args)
+    nil
   end
 
 end

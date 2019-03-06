@@ -1,12 +1,8 @@
 class Ship < Structure
+  attr_accessor :sprite
 
-  def initialize(args)
-    super
-    @sprite = args.fetch[:sprite]
-  end
-
-  def draw
-    # Draws the `sprite` at `location`
+  def post_initialize(args)
+    sprite = args.fetch[:sprite]
   end
 
 end
